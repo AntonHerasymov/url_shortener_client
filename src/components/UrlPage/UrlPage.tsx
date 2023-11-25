@@ -8,6 +8,10 @@ export const UrlPage = () => {
   const [url, setUrl] = useState<Url | null>(null);
 
   useEffect(() => {
+    if(localStorage.getItem("jwtToken") === null) {
+      window.location.href="/#"
+    }
+
     getUrlById(urlId)
       .then(data => setUrl(data));
   },[]);

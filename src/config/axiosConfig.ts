@@ -5,8 +5,7 @@ export const config: AxiosRequestConfig = {
   headers: {
     Accept: "text/plain",
     "Content-Type": "application/json",
-    Authorization: "Bearer yourAccessToken",
-    
+    Authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
   },
   timeout: 5000,
 };

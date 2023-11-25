@@ -34,7 +34,11 @@ export const AddUrl = async (url: UrlDto) => {
     .post("/URL/AddNew", url, config)
     .then((response) => response.data)
     .catch((error: AxiosError) => {
-      alert((error.response?.data as ErrorResponse)?.message);
+      if (error.response?.status === 401) {
+        alert("Unauthorized");
+      } else {
+        alert((error.response?.data as ErrorResponse)?.message);
+      }
     });
 
   return data;

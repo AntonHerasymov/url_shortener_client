@@ -31,3 +31,21 @@ export const getUrlById = async (urlId: string) => {
     return null;
   }
 };
+
+export const getFullUrl = async (shortUrl: string) => {
+  try {
+    const response = await axios.get(
+      "/URL/GetFullUrl?shortUrl=" + shortUrl,
+      config
+    );
+
+    if (response.status !== 200) {
+      throw Error("Error GetUrlById");
+    }
+
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};

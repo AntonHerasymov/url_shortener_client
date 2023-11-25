@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { LoginType } from "../../types/login";
 import { Login } from "../../api/post";
@@ -14,6 +14,12 @@ export const LoginPage = () => {
   const [error, setError] = useState('');
   const [password, setPassword] = useState('');
 
+  useEffect(() => {
+    if(localStorage.getItem("jwtToken") !== null) {
+      window.location.href="/#"
+    }
+  }, [])
+
   const handleLogin = async() => {
     if(!login.length || !password.length) {
       setError("Input Login and Password");
@@ -26,17 +32,15 @@ export const LoginPage = () => {
     try{
       const response = await Login(loginInit);
 
-      console.log(response);
-
       if(response.status === 404 || response.status === 400) {
         setError(response.data.message);
         return;
       }
 
-      
+      localStorage.setItem("jwtToken", response);
 
-     // window.location.href = "#/";
-
+      window.location.href = "#/";
+      window.location.reload();
     } catch (error){
       console.log(error);
     }
