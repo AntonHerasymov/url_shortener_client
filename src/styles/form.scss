@@ -8,7 +8,6 @@
   text-align: center;
 
   &__error {
-    visibility: hidden;
     color: red;
   }
 
@@ -28,6 +27,7 @@
   }
 
   &__button {
+    width: 200px;
     height: 40px;
     font-size: 15px;
     font-weight: 600;
