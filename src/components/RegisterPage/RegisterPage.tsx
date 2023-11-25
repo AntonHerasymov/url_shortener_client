@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export const RegisterPage = () => {
   const [login, setLogin] = useState('');
@@ -11,7 +10,7 @@ export const RegisterPage = () => {
       <form action="" className="main__form form">
         <h2 className="form__header">Register</h2>
         <span className="form__error">Error</span>
-        
+
         <div className="form__pair">
           <label className="form__label" htmlFor="Name">Name:</label>
           <input 

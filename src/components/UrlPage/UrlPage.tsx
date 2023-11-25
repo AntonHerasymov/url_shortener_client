@@ -1,20 +1,33 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getUrlById } from "../../api/get";
+import { Url } from "../../types/url";
+
 export const UrlPage = () => {
+  const { urlId = '' } = useParams();
+  const [url, setUrl] = useState<Url | null>(null);
+
+  useEffect(() => {
+    getUrlById(urlId)
+      .then(data => setUrl(data));
+  },[]);
+
   return (
     <div className="main__item">
       <span>
-        Full Url: https://www.google.com/maps/@49.0963685,33.4253089,13.67z?entry=ttu
+       {`Full Url: ${url?.fullUrl}`}  
       </span>
 
       <span>
-        Short Url: https://www.google.com/api/EwXDH0G
+        {`Short Url: ${url?.shortUrl}`}  
       </span>
 
       <span>
-        Created_By: Hovis
+      {`Created By: ${url?.createdByName}`}  
       </span>
 
       <span>
-        Created_Date: 24.11.2023
+      {`Created Date: ${url?.createdDate}`}  
       </span>
     </div>
   );
