@@ -1,9 +1,9 @@
-import './styles/header.scss'
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   return (
     <header className="header">
-      <span className="header__login">Login</span>
+      <Link to="login" className="header__login">Login</Link>
     </header>
   );
 }

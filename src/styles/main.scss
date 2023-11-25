@@ -2,4 +2,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
+
+  &__list {
+    display: flex;
+    width: 80%;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 54px 106px;
+    gap: 54px;
+
+    border: 1px solid #fff;
+  }
+
+  &__auth {
+    margin-top: 100px;
+  }
 }
