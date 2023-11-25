@@ -8,7 +8,7 @@ const urlToSend: UrlDto = {
   id: 0,
   fullUrl: "string",
   shortUrl: "string",
-  userId: 9,
+  userId: 0,
   createdDate: "2023-11-25T11:47:29.199Z",
 }
 
